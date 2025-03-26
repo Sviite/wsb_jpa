@@ -85,4 +85,8 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id", referencedColumnName = "id")
+	private AddressEntity address;
+
 }

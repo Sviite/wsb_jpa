@@ -41,4 +41,13 @@ public class VisitEntity {
 		this.time = time;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "doctor_id", referencedColumnName = "id")
+	private DoctorEntity doctor;
+
+	@ManyToOne
+	@JoinColumn(name = "patient_id", referencedColumnName = "id")
+	private PatientEntity patient;
+
+
 }

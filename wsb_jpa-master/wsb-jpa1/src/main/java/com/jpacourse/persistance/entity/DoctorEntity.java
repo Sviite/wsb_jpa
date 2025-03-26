@@ -86,4 +86,8 @@ public class DoctorEntity {
 		this.specialization = specialization;
 	}
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id", referencedColumnName = "id")
+	private AddressEntity address;
+
 }
