@@ -1,12 +1,15 @@
 package com.jpacourse.persistance.entity;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "PATIENT")
+
+
 public class PatientEntity {
 
 	@Id
@@ -31,7 +34,10 @@ public class PatientEntity {
 	private LocalDate dateOfBirth;
 
 	@Column(nullable = false)
-	private Integer age;
+	private Long age;
+
+	@OneToMany
+	private Collection<VisitEntity> visitEntityCollection;
 
 	public Long getId() {
 		return id;
@@ -89,12 +95,28 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Integer getAge() {
+	public Long getAge() {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public void setAge(Long age) {
 		this.age = age;
+	}
+
+	public Collection<VisitEntity> getVisitEntityCollection() {
+		return visitEntityCollection;
+	}
+
+	public void setVisitEntityCollection(Collection<VisitEntity> visitEntityCollection) {
+		this.visitEntityCollection = visitEntityCollection;
+	}
+
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
 	}
 
 	@OneToOne(cascade = CascadeType.ALL)

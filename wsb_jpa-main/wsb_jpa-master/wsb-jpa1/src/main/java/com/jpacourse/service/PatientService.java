@@ -1,9 +1,11 @@
 package com.jpacourse.service;
 
-import com.jpacourse.dto.PatientEntityTO;
+import com.jpacourse.dto.PatientTO;
 
 public interface PatientService {
-    PatientEntityTO findById(final Long id);
+    PatientTO findById(final Long id);
+
+    void deletePatient (long id);
 
 
 }

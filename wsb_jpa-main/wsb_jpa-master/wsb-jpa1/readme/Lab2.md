@@ -16,5 +16,5 @@ Spelnione maja byc nastepujace wymagania:
    ID pacjenta, ID doktora, data wizyty, opis wizyty 
 
    utworzy nowa encje wizyty i doda ja do pacjenta w jednym wywolaniu - kaskadowy update pacjenta (merge). 
-
+merge na pacjencie i doktorze żeby zaktualizować że pacjent i doktor mają nową wizytę
    Napisz test do tej metody (Dao)

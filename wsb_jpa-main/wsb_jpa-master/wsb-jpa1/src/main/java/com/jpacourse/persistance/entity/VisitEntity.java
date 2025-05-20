@@ -1,6 +1,7 @@
 package com.jpacourse.persistance.entity;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 import jakarta.persistence.*;
 
@@ -25,9 +26,8 @@ public class VisitEntity {
 	@JoinColumn(name = "patient_id", referencedColumnName = "id")
 	private PatientEntity patient;
 
-	@OneToOne
-	@JoinColumn(name = "medical_treatment_id",referencedColumnName = "id")
-	private MedicalTreatmentEntity medicalTreatment;
+	@OneToMany(mappedBy = "visit")
+	private Collection<MedicalTreatmentEntity> medicalTreatment;
 
 	public Long getId() {
 		return id;
@@ -69,11 +69,11 @@ public class VisitEntity {
 		this.patient = patient;
 	}
 
-	public MedicalTreatmentEntity getMedicalTreatment() {
+	public Collection<MedicalTreatmentEntity> getMedicalTreatment() {
 		return medicalTreatment;
 	}
 
-	public void setMedicalTreatment(MedicalTreatmentEntity medicalTreatment) {
+	public void setMedicalTreatment(Collection<MedicalTreatmentEntity> medicalTreatment) {
 		this.medicalTreatment = medicalTreatment;
 	}
 }

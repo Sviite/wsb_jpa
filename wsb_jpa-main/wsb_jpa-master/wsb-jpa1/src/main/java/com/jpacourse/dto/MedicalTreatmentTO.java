@@ -1,27 +1,14 @@
-
-package com.jpacourse.persistance.entity;
+package com.jpacourse.dto;
 
 import com.jpacourse.persistance.enums.TreatmentType;
 
-import jakarta.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "MEDICAL_TREATMENT")
-public class MedicalTreatmentEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class MedicalTreatmentTO implements Serializable {
     private Long id;
-
-    @Column(nullable = false)
     private String description;
-
-    @Enumerated(EnumType.STRING)
     private TreatmentType type;
-
-    @ManyToOne
-    @JoinColumn(name = "visit_id", referencedColumnName = "id")
-    private VisitEntity visit;
+    private VisitTO visitTO;
 
     public Long getId() {
         return id;
@@ -47,11 +34,11 @@ public class MedicalTreatmentEntity {
         this.type = type;
     }
 
-    public VisitEntity getVisit() {
-        return visit;
+    public VisitTO getVisitTO() {
+        return visitTO;
     }
 
-    public void setVisit(VisitEntity visit) {
-        this.visit = visit;
+    public void setVisitTO(VisitTO visitTO) {
+        this.visitTO = visitTO;
     }
 }
